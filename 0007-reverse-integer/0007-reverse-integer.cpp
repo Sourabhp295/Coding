@@ -11,7 +11,7 @@ public:
         if(rev>INT_MAX || rev<INT_MIN){
             return 0;
         }
-        return (int)(int)rev;
+        return (int)rev;
         
     }
 };
