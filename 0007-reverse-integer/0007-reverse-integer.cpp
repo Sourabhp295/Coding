@@ -8,10 +8,9 @@ public:
             rev=rev*10+rem;
             x=x/10;
         }
-         if(rev>INT_MAX || rev<INT_MIN){
+        if(rev>INT_MAX || rev<INT_MIN){
             return 0;
         }
         return (int)rev;
-        
     }
 };
