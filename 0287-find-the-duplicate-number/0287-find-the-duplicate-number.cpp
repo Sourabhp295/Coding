@@ -7,6 +7,6 @@ public:
             return nums[i];
             }
         }
-        return NULL;
+        return 0;
     }
 };
