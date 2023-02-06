@@ -1,24 +1,23 @@
-class Solution {
+class Solution{
 public:
-    int trap(vector<int>& v) {
-        int res=0;
-        int n=v.size();
-        vector<int> lmax(n);
-        vector<int> rmax(n);
-        
-        lmax[0]=v[0];
-        for(int i=1;i<n;i++){
-            lmax[i]=max(lmax[i-1],v[i]);
+    int trap(vector<int>& height) {
+        //sliding window
+        int left = 0 ; int right = height.size()-1 ;
+        int leftmax = height[left] ; int rightmax = height[right] ;
+
+        int ans = 0 ;
+        while (left < right) {
+            if (leftmax <= rightmax) { 
+                left++;
+                leftmax = max(leftmax , height[left]) ;
+                ans += leftmax - height[left] ;
+            }
+            else if (rightmax < leftmax) { 
+                right-- ;
+                rightmax = max(rightmax , height[right]) ; 
+                ans += rightmax - height[right] ;
+            }
         }
-        
-        rmax[n-1]=v[n-1];
-        for(int i=n-2;i>=0;i--){
-            rmax[i]=max(v[i],rmax[i+1]);
-        }
-        for(int i=1;i<n-1;i++){
-            res += min(lmax[i],rmax[i])-v[i];
-        }
-        
-        return res;
+        return ans ;
     }
 };
