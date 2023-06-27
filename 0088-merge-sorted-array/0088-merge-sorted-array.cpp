@@ -3,21 +3,10 @@ public:
     void merge(vector<int>& v1, int m, vector<int>& v2, int n) {
         vector<int>v5;
         if(n==0){
-            //for(int i=0;i<m;i++){
-             //   v5.push_back(v1[i]);
-            //}
-            v1=v1;
-           
+            v1=v1;   
         }
         if(m==0){
-            //for(int i=0;i<n;i++){
-               // v5.push_back(v2[i]);
-            
-            
-           // }
-            //v1=v5;
             v1=v2;
-            
         }
         
         vector<int> v3;
