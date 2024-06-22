@@ -2,6 +2,6 @@
 
 Select product_name, year, price
 from Sales
-inner join
+left join
 Product
 using(product_id);
