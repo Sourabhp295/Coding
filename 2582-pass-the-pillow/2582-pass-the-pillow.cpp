@@ -2,10 +2,8 @@ class Solution {
 public:
     int passThePillow(int n, int time) {
         int count = 1;
-        int a = time;
         int x = 1;
-        int y = 0;
-        while (a>0){
+        while (time>0){
             
             if(x%2 != 0){
                 count++;
@@ -17,7 +15,7 @@ public:
                 x++;
             }
             
-            a--;
+            time--;
         }
         return count;
        
