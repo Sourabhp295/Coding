@@ -8,31 +8,18 @@ class Solution {
   public:
     // Function to find a continuous sub-array which adds up to a given number.
     vector<int> subarraySum(vector<int> arr, int n, long long s) {
-        // Your code here
-         // Your code here
-        int right = 0;
-        int left = 0;
-        
-        long long sum = arr[left];
-        while(right < n){
-            if(sum == s){
-                
-                return {left+1,right+1};
+        int l = 0, r = 0;
+        long long sum = arr[0];
+        while (r < n){
+            if (sum == s) return {l + 1, r + 1};
+            if (sum > s) sum -= arr[l++];
+            else sum += arr[++r];
+            
+            if (l > r && r < n) {
+                sum = arr[++r];
             }
-          else if(sum < s){
-              right++;
-              sum += arr[right];
-          }
-          else if(sum > s && left == right){
-              left++;
-              right++;
-              sum = arr[left];
-          }
-          else{
-              sum -= arr[left];
-              left++;
-          }
         }
+        
         return {-1};
     }
 };
